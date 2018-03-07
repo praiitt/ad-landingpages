@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio Grid 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta http-Equiv="Cache-Control" Content="cache">
+	<meta http-Equiv="Pragma" Content="cache">
+	<meta http-Equiv="Expires" Content="1000">
+
+    <!-- Loading Bootstrap Styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+	
+    <!-- Loading Elements Styles -->   
+    <link href="css/style.css" rel="stylesheet">
+	
+	<!-- Loading Magnific-Popup Styles --> 
+    <link href="css/magnific-popup.css" rel="stylesheet"> 
+	   
+    <!-- Loading Font Styles -->
+    <link href="css/iconfont-style.css" rel="stylesheet">
+	
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="scripts/html5shiv.js"></script>
+      <script src="scripts/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    
+    <div id="wrap">
+    
+    	<!-- PORTFOLIO GRID 3 BLOCK -->
+		<section id="portfolio-grid-3" class="portfolio-block text-center bg-color3">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+						<h2 class="title">Gallery</h2>
+			      </div>
+				</div>
+				<ul class="portfolio-list">
+					<li>
+						<a href="./images/blog/post-img-2.jpg" title="Description"><span class="editContent">Screen 1</span><img src="images/blog/post-img-2.jpg" alt=""></a>
+				  </li>
+					<li>
+						<a href="./images/blog/post-img-5.jpg" title="Description"><span class="editContent">Screen 2</span><img src="images/blog/post-img-5.jpg" alt=""></a>
+				  </li>
+					<li>
+						<a href="./images/blog/post-img-6.jpg" title="Description"><span class="editContent">Screen 3</span><img src="images/blog/post-img-6.jpg" alt=""></a>
+				  </li>
+					<li>
+					  <a href="./images/blog/post-img-7.jpg" title="Description"><span class="editContent">Screen 4</span><img src="images/blog/post-img-7.jpg" alt=""></a>
+				  </li>
+					<li>
+					  <a href="./images/blog/post-img-8.jpg" title="Description"><span class="editContent">Screen 5</span><img src="images/blog/post-img-8.jpg" alt=""></a>
+				  </li>
+					<li>
+					  <a href="./images/blog/post-img-9.jpg" title="Description"><span class="editContent">Screen 6</span><img src="images/blog/post-img-9.jpg" alt=""></a>
+				  </li>
+                    <li>
+						<a href="./images/blog/post-img-10.jpg" title="Description"><span class="editContent">Screen 1</span><img src="images/blog/post-img-10.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href="./images/blog/post-img-11.jpg" title="Description"><span class="editContent">Screen 2</span><img src="images/blog/post-img-11.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href="./images/blog/post-img-12.jpg" title="Description"><span class="editContent">Screen 3</span><img src="images/blog/post-img-12.jpg" alt=""></a>
+					</li>
+				</ul>
+			</div>
+		</section>
+    
+    </div><!-- /#wrap -->
+
+
+    <!-- JavaScript -->	
+	<script src="scripts/jquery-1.11.2.min.js"></script> 
+	<script src="scripts/jquery.magnific-popup.min.js"></script> 
+	<script>
+
+		function runScript() {
+			$('.portfolio-list li').magnificPopup({
+				delegate: 'a:not(.btn, .link-item)',
+				type: 'image',
+				gallery: {
+					enabled: true
+				}
+			});
+		}
+
+		$(window).load(function() {
+			"use strict";
+			runScript();
+		});
+
+		runScript();
+
+		document.addEventListener('reload-script',function(){
+			runScript();
+		});
+	</script>
+	
+</body>
+</html>

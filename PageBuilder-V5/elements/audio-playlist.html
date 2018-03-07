@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Audio Playlist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-Equiv="Cache-Control" Content="cache">
+    <meta http-Equiv="Pragma" Content="cache">
+    <meta http-Equiv="Expires" Content="1000">
+    <!-- Loading Bootstrap Styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Loading Elements Styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Loading Font Styles -->
+    <link href="css/iconfont-style.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+        <script src="scripts/html5shiv.js"></script>
+        <script src="scripts/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- AUDIO PLAYLIST BLOCK -->
+        <section class="bg-color3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="images/blog/post-img-15.jpg" class="screen sep-half-bottom" alt="" />
+                        <h2 class="sep-zero-bottom"><strong>Artist</strong> - New Album</h2>
+                    </div>
+                    <div class="col-md-5 col-md-offset-1">
+                        <div class="audio-box">
+                            <div class="audiojs " classname="audiojs">
+                                <audio src="http://kolber.github.io/audiojs/demos/mp3/08-basic-hypnosis.mp3" preload="auto"></audio>
+                                <div class="play-pause">
+                                    <p class="play"></p>
+                                    <p class="pause"></p>
+                                    <p class="loading"></p>
+                                    <p class="error"></p>
+                                </div>
+                                <div class="scrubber">
+                                    <div class="progress"></div>
+                                    <div class="loaded"></div>
+                                </div>
+                                <div class="time"> <em class="played"></em>/<strong class="duration"></strong> </div>
+                                <div class="error-message"></div>
+                            </div>
+                            <ol class="playlist">
+                                <li><a href="#" data-src="http://kolber.github.io/audiojs/demos/mp3/01-dead-wrong-intro.mp3">dead wrong intro</a></li>
+                                <li><a href="#" data-src="http://kolber.github.io/audiojs/demos/mp3/02-juicy-r.mp3">juicy-r</a></li>
+                                <li><a href="#" data-src="http://kolber.github.io/audiojs/demos/mp3/03-its-all-about-the-crystalizabeths.mp3">it's all about the crystalizabeths</a></li>
+                                <li><a href="#" data-src="http://kolber.github.io/audiojs/demos/mp3/04-islands-is-the-limit.mp3">islands is the limit</a></li>
+                                <li><a href="#" data-src="http://kolber.github.io/audiojs/demos/mp3/05-one-more-chance-for-a-heart-to-skip-a-beat.mp3">one more chance for a heart to skip a beat</a></li>
+                                <li><a href="#" data-src="http://kolber.github.io/audiojs/demos/mp3/06-suicidal-fantasy.mp3">suicidal fantasy</a></li>
+                                <li><a href="#" data-src="http://kolber.github.io/audiojs/demos/mp3/07-everyday-shelter.mp3">everyday shelter</a></li>
+                                <li><a href="#" data-src="http://kolber.github.io/audiojs/demos/mp3/08-basic-hypnosis.mp3">basic hypnosis</a></li>
+                                <li><a href="#" data-src="http://kolber.github.io/audiojs/demos/mp3/09-infinite-victory.mp3">infinite victory</a></li>
+                                <li><a href="#" data-src="http://kolber.github.io/audiojs/demos/mp3/10-the-curious-incident-of-big-poppa-in-the-nighttime.mp3">the curious incident of big poppa in the nighttime</a></li>
+                                <li><a href="#" data-src="http://kolber.github.io/audiojs/demos/mp3/11-mo-stars-mo-problems.mp3">mo stars mo problems</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+    </div>
+    <!-- /#wrap -->
+    <script src="scripts/jquery-1.11.2.min.js"></script>
+    <script src="scripts/audio.min.js"></script>
+    <script>
+    audiojs.events.ready(function() {
+
+        var audioArr = $('audio');
+
+        // add data-attributes to all audio tags & playlist
+        for (var i = 0; i < audioArr.length; i++) {
+            $(audioArr).eq(i).attr('data-index', i);
+            var checkPlaylist = $(audioArr).eq(i).closest('.audio-box').find('.playlist');
+            if (checkPlaylist) {
+                $(checkPlaylist).attr('data-playlist', i);
+            }
+        };
+
+        // init audiojs plugin
+        var audio = audiojs.createAll({
+            trackEnded: function() {
+                var next = $('ol.playlist li.playing').next();
+                if (!next.length) next = $('ol.playlist li').first();
+                next.addClass('playing').siblings().removeClass('playing');
+                var cur = $('ol.playlist li.playing').closest('.audio-box').find('audio').attr('data-index');
+                audio[cur].load($('a', next).attr('data-src'));
+                audio[cur].play();
+            }
+        });
+
+        function stopPlayers() {
+            for (var i = 0; i < audioArr.length; i++) {
+                $('.playlist li').removeClass('playing');
+                audio[i].pause();
+            };
+        }
+
+        // check default song
+        $('.audiojs .play').click(function() {
+            var defSong = $(this).closest('.audiojs').find('audio').attr('src');
+            var allSong = $(this).closest('.audio-box').find('.playlist li');
+            var singlePlayer = $(this).closest('.audiojs').hasClass('singlePlayer');
+
+            for (var i = 0; i < allSong.length; i++) {
+                var checkDef = $(allSong).eq(i).find('a');
+                if (defSong == checkDef.attr('data-src')) {
+                    stopPlayers();
+                    $(checkDef).closest('li').addClass('playing').siblings('li').removeClass('playing');
+                } else {
+                    continue;
+                }
+            };
+
+            if(singlePlayer){
+                stopPlayers()
+            }
+        });
+
+        // change song
+        $('.playlist li a').click(function(event) {
+            var curSong = $(this).attr('data-src');
+            var curAudioTag = $(this).closest('.playlist').siblings('.audiojs').find('audio').attr('data-index');
+            var curPlayList = $(this).closest('.playlist').attr('data-playlist');
+            var checkPlaying = $(this).closest('li').hasClass('playing');
+
+            // Play current song
+            if (curAudioTag == curPlayList) {
+                if (!checkPlaying) {
+                    stopPlayers();
+
+                    audio[curAudioTag].load(curSong);
+                    audio[curAudioTag].play();
+                } else {
+                    audio[curAudioTag].pause();
+                }
+            }
+
+            $(this).closest('li').addClass('playing').siblings('li').removeClass('playing');
+
+            event.preventDefault();
+        });
+    })
+    </script>
+</body>
+
+</html>

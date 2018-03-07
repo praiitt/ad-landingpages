@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Intro Video Background</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta http-Equiv="Cache-Control" Content="cache">
+	<meta http-Equiv="Pragma" Content="cache">
+	<meta http-Equiv="Expires" Content="1000">
+
+    <!-- Loading Bootstrap Styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+	
+    <!-- Loading Elements Styles -->   
+    <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Datepicker Styles -->   
+    <link href="css/bootstrap-datepicker3.min.css" rel="stylesheet">
+	   
+    <!-- Loading Font Styles -->
+    <link href="css/iconfont-style.css" rel="stylesheet">
+	
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="scripts/html5shiv.js"></script>
+      <script src="scripts/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    
+    <div id="wrap">
+    
+		<!-- INTRO FORM VIDEO BG BLOCK -->
+        <header id="intro-form-video-bg" class="intro-block bg-color1 dark-bg text-center">
+              <div class="container">
+                  <div class="slogan">
+                      <img src="./images/icon.png" alt="logo" class="sep-bottom">
+                      <h1>Looking for your next home?</h1>
+                  </div>
+                  <form action="scripts/booking.php" method="post" id="booking_form" class="validation-message clearfix line-form five-fields sep-half-bottom" novalidate>
+                          <div class="form-group">
+                              <input class="form-control" type="text" name="loc" id="location" placeholder="Location">
+                          </div>
+                          <span class="input-daterange">
+                              <div class="form-group">
+                                  <input type="text" placeholder="Check-in Date" class="form-control" id="checkin-date" name="start" />
+                              </div>  
+                              <div class="form-group">
+                                  <input type="text" placeholder="Check-out Date" class="form-control" id="checkout-date" name="end" />
+                              </div>
+                          </span>
+                          <div class="form-group select-group">
+                              <select class="form-control select-placeholder" id="guests_num" name="guests">
+                                <option selected disabled>Guests</option>
+                                <option>1 Adult, 0 Children</option>
+                                <option>2 Adult, 0 Children</option>
+                                <option>2 Adult, 1 Children</option>
+                                <option>2 Adult, 2 Children</option>
+                              </select>
+                          </div>
+                          <div class="form-group">
+                              <input class="form-control" type="email" name="email" id="booking_email" placeholder="Enter your email">
+                          </div>
+                          <button class="btn btn-primary" type="submit" id="booking_submit" data-loading-text="•••">Send</button>
+                  </form>
+                  <p class="editContent desc-text">No fluff. Nothing should lead the visitor away from the main essence of website. <br>There must be just important information.</p>
+              </div>
+             <div class="video-bg"></div> 
+        </header>
+
+        <!-- MODAL BOOKING WINDOWS-->
+        <div class="modal fade" id="modalBookingSuccess" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title"><i class="icon icon-map2"></i>Congratulations!<br>Your booking request has been sent! <br>We will contact you soon.</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalBookingError" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title"><i class="icon icon-ban"></i>Oops!<br>Something went wrong!</h3>
+                </div>
+            </div>
+        </div>
+    
+    </div><!-- /#wrap -->
+	
+	<!-- JavaScript --> 
+	<script src="scripts/jquery-1.11.2.min.js"></script> 
+	<script src="scripts/video.js"></script>
+	<script src="scripts/bigvideo.js"></script>
+    <script src="scripts/jquery.validate.min.js"></script>
+    <script src="scripts/bootstrap-datepicker.min.js"></script>
+	<script>
+        function runScript() {
+            $(function () {
+                var BV = new $.BigVideo({container: $('.video-bg'), useFlashForFirefox: false});
+                BV.init();
+                if (navigator.userAgent.match(/iPhone|iPad|iPod|Android|BlackBerry|IEMobile/i)) {
+                    BV.show('images/video_gag.jpg');
+                } else {
+                    if (!!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0) {
+                        BV.show('video/video_bg.ogv', {doLoop: true, ambient: true});
+                    } else {
+                        BV.show('video/video_bg.mp4', {doLoop: true, ambient: true, altSource: 'video/video_bg.ogv'});
+                    }
+                    BV.getPlayer().on('loadedmetadata', function () {
+                        $('#big-video-wrap video').fadeIn('slow');
+                    });
+                }
+            });
+
+
+//------------------------------------------------------------------------------------
+//						BOOKING FORM VALIDATION'S SETTINGS
+//------------------------------------------------------------------------------------
+
+            $('#booking_form .input-daterange').datepicker({
+                startDate: "Beginning of time",
+                todayBtn: "linked",
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            $('#booking_form').validate({
+                onfocusout: false,
+                onkeyup: false,
+                rules: {
+                    loc: "required",
+                    start: "required",
+                    end: "required",
+                    guests: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                errorPlacement: function (error, element) {
+                    error.appendTo(element.closest(".validation-message"));
+                },
+                messages: {
+                    loc: "Please enter location",
+                    start: "Please enter valid Date",
+                    end: "Please enter valid Date",
+                    guests: "Please enter number of guests",
+                    email: {
+                        required: "What's your email?",
+                        email: "Please, enter a valid email"
+                    }
+                }
+            });
+
+
+//------------------------------------------------------------------------------------
+//				            BOOKING FORM SCRIPT
+//------------------------------------------------------------------------------------
+
+            $('#booking_form').submit(function () {
+                // submit the form
+                if ($(this).valid()) {
+                    $('#booking_submit').button('loading');
+                    var action = $(this).attr('action');
+                    $.ajax({
+                        url: action,
+                        type: 'POST',
+                        data: {
+                            location: $('#location').val(),
+                            checkin: $('#checkin-date').val(),
+                            checkout: $('#checkout-date').val(),
+                            guests: $('#guests_num').val(),
+                            bookingemail: $('#booking_email').val()
+                        },
+                        success: function () {
+                            $('#booking_submit').button('reset');
+                            //Use modal popups to display messages
+                            $('#modalBookingSuccess').modal('show');
+                        },
+                        error: function () {
+                            $('#booking_submit').button('reset');
+                            //Use modal popups to display messages
+                            $('#modalBookingError').modal('show');
+                        }
+                    });
+                } else {
+                    $('#booking_submit').button('reset')
+                }
+                return false;
+            });
+
+        }
+
+        runScript();
+
+        document.addEventListener('reload-script',function(){
+            runScript();
+        });
+    
+	</script>
+
+</body>
+</html>

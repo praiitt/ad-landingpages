@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Video Popup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-Equiv="Cache-Control" Content="cache">
+    <meta http-Equiv="Pragma" Content="cache">
+    <meta http-Equiv="Expires" Content="1000">
+
+    <!-- Loading Bootstrap Styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Elements Styles -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Loading Font Styles -->
+    <link href="css/iconfont-style.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="scripts/html5shiv.js"></script>
+      <script src="scripts/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div id="wrap">
+
+        <!-- VIDEO POPUP BLOCK -->
+        <section id="video-popup" class="text-center bg-color1 dark-bg cover-bg" style="background-image:url(images/bg31.jpg);">
+            <div class="container">
+                <h2 class="title">Watch our new video!</h2>
+                <a href="#" data-toggle="modal" data-target="#myModal" class="giant-title"><i class="icon center-icon icon-control-play"></i></a>
+            </div>
+        </section>
+
+        <div class="modal fade modalVideo" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                       <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/jCxehjcYwlc?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen></iframe>
+                                <div class="frameCover" data-type="video"></div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /#wrap -->
+
+    <!-- JavaScript -->
+    <script src="scripts/jquery-1.11.2.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+
+</body>
+
+</html>

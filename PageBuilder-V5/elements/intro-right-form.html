@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Intro Right Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta http-Equiv="Cache-Control" Content="cache">
+	<meta http-Equiv="Pragma" Content="cache">
+	<meta http-Equiv="Expires" Content="1000">
+
+    <!-- Loading Bootstrap Styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+	
+    <!-- Loading Elements Styles -->   
+    <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Datepicker Styles -->   
+    <link href="css/bootstrap-datepicker3.min.css" rel="stylesheet">
+	
+    <!-- Loading Font Styles -->
+    <link href="css/iconfont-style.css" rel="stylesheet">
+	
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="scripts/html5shiv.js"></script>
+      <script src="scripts/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    
+    <div id="wrap">
+    
+		  <!-- INTRO RIGHT FORM -->
+  		<header id="intro-right-form" class="intro-block bg-color1 cover-bg half-padding" style="background-image:url(images/bg51.jpg)" >
+  			<div class="container">
+  				<div class="row">
+                      <div class="col-md-6 col-md-push-6 dark-bg">
+                          <h1 class="title">Rent a Car Today</h1>
+                          <h3>+ Best Price on Market</h3>
+                          <h3>+ The Freshest cars</h3>
+                          <h3>+ Full Insurance for all clients</h3>
+  					</div>
+                      <div class="col-md-5 col-md-pull-6">
+  						<div class="form-container">
+  							<h3 class="title">Make a Reservation</h3>
+  							<form action="scripts/rent.php" role="form" id="rent_form">
+                                  <div class="form-group select-group">
+  									<select class="form-control select-placeholder" id="rent-type" name="type">
+                                        <option selected disabled>Hire Car Type:</option>
+                                        <option>Economy</option>
+                                        <option>Compact</option>
+                                        <option>Standard</option>
+                                        <option>Vans</option>
+                                      </select>
+  								</div>
+  								<div class="form-group select-group">
+  									<select class="form-control" id="pickup-location" name="pickloc">
+                                        <option value="" selected disabled>Pick-up Location:</option>
+                                        <option>14 West Street</option>
+                                        <option>81 East Street</option>
+                                        <option>8 South Street</option>
+                                        <option>144 North Street</option>
+                                      </select>
+  								</div>
+                                  <div class="form-group select-group">
+                                          <select class="form-control" id="dropoff-location" name="droploc">
+                                            <option selected disabled>Drop-off Location:</option>
+                                            <option>14 West Street</option>
+                                            <option>81 East Street</option>
+                                            <option>8 South Street</option>
+                                            <option>144 North Street</option>
+                                          </select>
+                                      </div>
+                                  <div class="input-daterange" id="datepicker">
+                                      <div class="row no-dev">
+                                          <div class="col-xs-6">
+                                              <div class="form-group">
+                                              <input type="text" placeholder="Pick-up Date" class="form-control" id="pickup-date" name="start" />
+                                              </div>
+                                          </div>  
+                                          <div class="col-xs-6">
+                                              <div class="form-group select-group">
+                                              <select class="form-control" id="pickup-time" name="start-time">
+                                                <option>00:00</option>
+                                                <option>00:30</option>
+                                                <option>01:00</option>
+                                                <option>01:30</option>
+                                                <option>02:00</option>
+                                                <option>02:30</option>
+                                                <option>03:00</option>
+                                                <option>03:30</option>
+                                                <option>04:00</option>
+                                                <option>04:30</option>
+                                                <option>05:00</option>
+                                                <option>05:30</option>
+                                                <option>06:00</option>
+                                                <option>06:30</option>
+                                                <option>07:00</option>
+                                                <option>07:30</option>
+                                                <option>08:00</option>
+                                                <option>08:30</option>
+                                                <option>09:00</option>
+                                                <option>09:30</option>
+                                                <option>10:00</option>
+                                                <option>10:30</option>
+                                                <option>11:00</option>
+                                                <option>11:30</option>
+                                                <option selected>12:00</option>
+                                                <option>12:30</option>
+                                                <option>13:00</option>
+                                                <option>13:30</option>
+                                                <option>14:00</option>
+                                                <option>14:30</option>
+                                                <option>15:00</option>
+                                                <option>15:30</option>
+                                                <option>16:00</option>
+                                                <option>16:30</option>
+                                                <option>17:00</option>
+                                                <option>17:30</option>
+                                                <option>18:00</option>
+                                                <option>18:30</option>
+                                                <option>19:00</option>
+                                                <option>19:30</option>
+                                                <option>20:00</option>
+                                                <option>20:30</option>
+                                                <option>21:00</option>
+                                                <option>21:30</option>
+                                                <option>22:00</option>
+                                                <option>22:30</option>
+                                                <option>23:00</option>
+                                                <option>23:30</option>
+                                              </select>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row no-dev">
+                                          <div class="col-xs-6">
+                                              <div class="form-group">
+                                                  <input type="text" placeholder="Drop-off Date" class="form-control" name="end" id="dropoff-date" />
+                                              </div>
+                                          </div>  
+                                          <div class="col-xs-6">
+                                              <div class="form-group select-group">
+                                              <select class="form-control" id="dropoff-time" name="end-time">
+                                                <option>00:00</option>
+                                                <option>00:30</option>
+                                                <option>01:00</option>
+                                                <option>01:30</option>
+                                                <option>02:00</option>
+                                                <option>02:30</option>
+                                                <option>03:00</option>
+                                                <option>03:30</option>
+                                                <option>04:00</option>
+                                                <option>04:30</option>
+                                                <option>05:00</option>
+                                                <option>05:30</option>
+                                                <option>06:00</option>
+                                                <option>06:30</option>
+                                                <option>07:00</option>
+                                                <option>07:30</option>
+                                                <option>08:00</option>
+                                                <option>08:30</option>
+                                                <option>09:00</option>
+                                                <option>09:30</option>
+                                                <option>10:00</option>
+                                                <option>10:30</option>
+                                                <option>11:00</option>
+                                                <option>11:30</option>
+                                                <option>12:00</option>
+                                                <option selected>12:30</option>
+                                                <option>13:00</option>
+                                                <option>13:30</option>
+                                                <option>14:00</option>
+                                                <option>14:30</option>
+                                                <option>15:00</option>
+                                                <option>15:30</option>
+                                                <option>16:00</option>
+                                                <option>16:30</option>
+                                                <option>17:00</option>
+                                                <option>17:30</option>
+                                                <option>18:00</option>
+                                                <option>18:30</option>
+                                                <option>19:00</option>
+                                                <option>19:30</option>
+                                                <option>20:00</option>
+                                                <option>20:30</option>
+                                                <option>21:00</option>
+                                                <option>21:30</option>
+                                                <option>22:00</option>
+                                                <option>22:30</option>
+                                                <option>23:00</option>
+                                                <option>23:30</option>
+                                              </select>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+  								<div class="form-group sep-half-bottom">
+  									<input type="email" class="form-control" id="rent_email" placeholder="Email Address" name="email">
+  								</div>
+
+  								<button type="submit" id="rent_submit" data-loading-text="&bull;&bull;&bull;" class="btn btn-lg btn-block btn-primary">Reserve</button>
+  							</form>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</header>
+
+      <!-- MODAL RENTAL WINDOWS-->
+      <div class="modal fade" id="modalRentSuccess" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h3 class="modal-title"><i class="icon icon-document"></i><strong>Congratulations!</strong><br><br>Your reservation has been sent! <br>We will contact you soon.</h3>
+              </div>
+          </div>
+      </div>
+
+      <div class="modal fade" id="modalRentError" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h3 class="modal-title"><i class="icon icon-ban"></i>Oops!<br>Something went wrong!</h3>
+              </div>
+          </div>
+      </div>
+    
+    </div><!-- /#wrap -->
+    
+	
+	<!-- JavaScript --> 
+	<script src="scripts/jquery-1.11.2.min.js"></script> 
+	<script src="scripts/bootstrap.min.js"></script>
+	<script src="scripts/jquery.validate.min.js"></script> 
+	<script src="scripts/placeholders.jquery.min.js"></script> 
+    <script src="scripts/bootstrap-datepicker.min.js"></script> 
+	<script>
+    function runScript() {
+        $('#rent_form .input-daterange').datepicker({
+            startDate: "Beginning of time",
+            todayBtn: "linked",
+            autoclose: true,
+            todayHighlight: true
+        });
+
+        $('#rent_form').validate({
+            onfocusout: false,
+            onkeyup: false,
+            rules: {
+                type: "required",
+                start: "required",
+                pickloc: "required",
+                end: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+            messages: {
+                type: "Please enter car type",
+                start: "Please enter valid Date",
+                pickloc: "Please enter a Pick-up Location",
+                end: "Please enter valid Date",
+                email: {
+                    required: "What's your email?",
+                    email: "Please, enter a valid email"
+                }
+            }
+        });
+
+        $('#rent_form').submit(function () {
+            // submit the form
+            if ($(this).valid()) {
+                $('#rent_submit').button('loading');
+                var action = $(this).attr('action');
+                $.ajax({
+                    url: action,
+                    type: 'POST',
+                    data: {
+                        renttype: $('#rent-type').val(),
+                        pickuploc: $('#pickup-location').val(),
+                        dropoffloc: $('#dropoff-location').val(),
+                        pickdate: $('#pickup-date').val(),
+                        picktime: $('#pickup-time').val(),
+                        dropdate: $('#dropoff-date').val(),
+                        droptime: $('#dropoff-time').val(),
+                        rentemail: $('#rent_email').val()
+                    },
+                    success: function () {
+                        $('#rent_submit').button('reset');
+                        //Use modal popups to display messages
+                        $('#modalRentSuccess').modal('show');
+                    },
+                    error: function () {
+                        $('#rent_submit').button('reset');
+                        //Use modal popups to display messages
+                        $('#modalRentError').modal('show');
+                    }
+                });
+            } else {
+                $('#rent_submit').button('reset')
+            }
+            return false;
+        });
+    }
+
+    runScript();
+
+    document.addEventListener('reload-script',function(){
+        runScript();
+    });
+	</script> 
+
+</body>
+</html>
